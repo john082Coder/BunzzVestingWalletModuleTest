@@ -196,3 +196,11 @@ export const release = async (vestingWalletContract, account) => {
     return tx.transactionHash
   }); 
 }
+
+export const revokeVestingSchedule = async (vestingWalletContract, account) => {
+  return vestingWalletContract.methods.revokeVestingSchedule().send({ from: account})
+  .on('transactionHash', (tx) => {
+    console.log(tx)
+    return tx.transactionHash
+  }); 
+}
